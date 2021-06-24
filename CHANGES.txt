@@ -1,3 +1,7 @@
+Changes in 3.1.0
+================
+Deprecate `bitarray.length()` and use `len`.
+
 Changes in 3.0.0
 ================
 Backward incompatible change: dropped the support of Python 2.6.
