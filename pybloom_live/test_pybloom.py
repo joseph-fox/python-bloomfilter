@@ -1,19 +1,19 @@
 from __future__ import absolute_import
+
 from pybloom_live.pybloom import (BloomFilter, ScalableBloomFilter,
                                   make_hashfuncs)
-from pybloom_live.utils import running_python_3, range_fn
+from pybloom_live.utils import range_fn, running_python_3
 
 try:
-    import StringIO
     import cStringIO
+    import StringIO
 except ImportError:
     pass
 
 import io
-
-import unittest
 import random
 import tempfile
+import unittest
 
 import pytest
 
@@ -21,15 +21,15 @@ import pytest
 class TestMakeHashFuncs(unittest.TestCase):
     def test_make_hashfuncs_returns_hashfn(self):
         make_hashes, hashfn = make_hashfuncs(100, 20)
-        self.assertEquals('openssl_sha512', hashfn.__name__)
+        self.assertEqual('openssl_sha512', hashfn.__name__)
         make_hashes, hashfn = make_hashfuncs(20, 3)
-        self.assertEquals('openssl_sha384', hashfn.__name__)
+        self.assertEqual('openssl_sha384', hashfn.__name__)
         make_hashes, hashfn = make_hashfuncs(15, 2)
-        self.assertEquals('openssl_sha256', hashfn.__name__)
+        self.assertEqual('openssl_sha256', hashfn.__name__)
         make_hashes, hashfn = make_hashfuncs(10, 2)
-        self.assertEquals('openssl_sha1', hashfn.__name__)
+        self.assertEqual('openssl_sha1', hashfn.__name__)
         make_hashes, hashfn = make_hashfuncs(5, 1)
-        self.assertEquals('openssl_md5', hashfn.__name__)
+        self.assertEqual('xxh3_128', hashfn.__name__)
 
 
 class TestUnionIntersection(unittest.TestCase):

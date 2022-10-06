@@ -1,1 +1,2 @@
 bitarray>=0.3.4
+xxhash>=3.0.0

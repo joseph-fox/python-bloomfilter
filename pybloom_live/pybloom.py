@@ -5,11 +5,15 @@ without increasing the false positive error_rate.
 Requires the bitarray library: http://pypi.python.org/pypi/bitarray/
 """
 from __future__ import absolute_import
-import math
-import hashlib
+
 import copy
-from pybloom_live.utils import range_fn, is_string_io, running_python_3
-from struct import unpack, pack, calcsize
+import hashlib
+import math
+from struct import calcsize, pack, unpack
+
+import xxhash
+
+from pybloom_live.utils import is_string_io, range_fn, running_python_3
 
 try:
     import bitarray
@@ -34,7 +38,7 @@ def make_hashfuncs(num_slices, num_bits):
     elif total_hash_bits > 128:
         hashfn = hashlib.sha1
     else:
-        hashfn = hashlib.md5
+        hashfn = xxhash.xxh128
 
     fmt = fmt_code * (hashfn().digest_size // chunk_size)
     num_salts, extra = divmod(num_slices, len(fmt))
