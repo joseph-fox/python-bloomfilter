@@ -81,7 +81,7 @@ link followed by "Download Zip."
 Similar steps are possible under linux and MacOS X.
 
 # Breaking changes with 4.x
-Support for non-cryptographic hashes has been added in 4.0.0. For 128 bit hashes, md5 has been replaced with xxh3_128, one of the [fastest](https://github.com/Cyan4973/xxHash) non-cryptographic hash functions. Details of benchmark runs can be found https://github.com/joseph-fox/python-bloomfilter/pull/38. Files generated with earlier versions of the module will not work with this version. Consider re-generating them using the latest version optimized for speed.  
+Support for non-cryptographic hashes has been added in 4.0.0. For 128 bit hashes, md5 has been replaced with xxh3_128, one of the [fastest](https://github.com/Cyan4973/xxHash) non-cryptographic hash functions. Details of the benchmark runs can be found [here](https://github.com/joseph-fox/python-bloomfilter/pull/38). Files generated with earlier versions of the module *will not work* with this version. Consider re-generating them using the latest version optimized for speed.  
 
 # Installation verification
 Type `pip show pybloom-live` from a command prompt. Version should be 
