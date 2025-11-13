@@ -1,3 +1,8 @@
+Changes in 4.0.0
+================
+Use  non-cryptographic hash functions. 
+For 128 bit hashes, MD5 is replaced with xxh3_128.
+
 Changes in 3.1.0
 ================
 Deprecate `bitarray.length()` and use `len`.
